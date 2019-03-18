@@ -10,8 +10,13 @@ class padre extends Model
 
  	protected $fillable = ['nombre', 'apellido', 'telefono', 'direccio'];   
 
- 	public function ()
+ 	public function estudiantes()
  	{
- 		
+ 		return $this->hasMany('App\estudiante');
+ 	}
+
+ 	public function User()
+ 	{
+ 		return $this->belongsTo('App\User');
  	}
 }
