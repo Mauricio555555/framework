@@ -13,13 +13,16 @@ class AddDocentesTable extends Migration
      */
     public function up()
     {
+        Schema::enableForeignKeyConstraints();
         Schema::create('docentes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nombre', 20);
             $table->string('apellido', 20);
             $table->string('No_seguro', 20);
             $table->string('telefono', 20);
-            $table->string('materia', 20);
+            $table->unsignedBigInteger('materia');
+
+            $table->foreign('materia')->references('id')->on('materias')->onDelete('cascade'); 
             $table->timestamps();
         });
     }
