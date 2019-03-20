@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Http\Requests\UsersRequest;
 
 class ControllerUsers extends Controller
 {
@@ -25,7 +26,7 @@ class ControllerUsers extends Controller
 
     //**
 	//
-    public function store(Request $request)
+    public function store(UsersRequest $request)
     {
     	$users = new User($request->all());
     	$users->password = bcrypt($request->password);
@@ -61,10 +62,7 @@ class ControllerUsers extends Controller
      public function update(Request $request, $id)
     {
         $users = User::find($id);
-        $users->name = $request->name;
-        $users->email = $request->email;
-        $users->password = $request->password;
-        $users->type = $request->type;
+        $users->fill($request->all());
         $users->save();
 
         flash( "Los datos se han actualizado exitosamente" )->success();
