@@ -2,8 +2,10 @@
 
 @section('title', 'Lista de usuarios')
 
+
 @section('content')
-<a href="{{url('admin/users/create')}}" class="btn btn-info">Registrar nuevo usuario</a>
+<link  rel = " hoja de estilo "  href = " //maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css ">
+<a href="{{url('admin/users/create')}}" class="btn btn-info">Registrar nuevo usuario</a><hr>
 	<table class="table table-striped table-dark">
   <thead>
     <tr>

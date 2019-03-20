@@ -9,6 +9,8 @@
 	@include('admin.parcial.nav')
 
 	<section>
+		@include('flash::message')
+		<hr>
 		@yield('content')	
 	</section>
 
