@@ -4,15 +4,15 @@
 
 @section('content')
 
-	{{ Form::open(array('route' => 'users.store')) }}
+	 {!! Form::open(['route' => ['users.update', $users->id], 'method' => 'PUT']) !!}
 
 		<div class="form-group">
 			{{ Form::label('name', 'Nombre')}}
-			{{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nombre completo', 'required'])}}
+			{{ Form::text('name', $users -> name, ['class' => 'form-control', 'placeholder' => 'Nombre completo', 'required'])}}
 		</div>
 		<div class="form-group">
 			{{ Form::label('email', 'Email')}}
-			{{ Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'example@correo.com', 'required'])}}
+			{{ Form::email('email', $users -> email, ['class' => 'form-control', 'placeholder' => 'example@correo.com', 'required'])}}
 		</div>
 		<div class="form-group">
 			{{ Form::label('password', 'Password')}}
@@ -23,7 +23,7 @@
 			{{ Form::select('type', ['' => 'Elija una opcion','admin' => 'Administrador', 'students' => 'Estudiante', 'graduates' => 'Egresado', 'parents' => 'Padres', 'teachers' => 'Profesor'], null, ['class' => 'form-control'])}}
 		</div>
 		<div class="form-group">
-			{{ Form::submit('Registrar', ['class' => 'btn btn-primary'])}}
+			{{ Form::submit('Editar', ['class' => 'btn btn-primary'])}}
 		</div>
 
 	{{ Form::close() }}

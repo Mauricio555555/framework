@@ -4,7 +4,7 @@
 
 @section('content')
 
-	{{ Form::open(array('route' => 'users.store')) }}
+	{{ Form::open(array('route' => 'users.store', 'method' => 'POTS')) }}
 
 		<div class="form-group">
 			{{ Form::label('name', 'Nombre')}}
