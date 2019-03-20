@@ -16,7 +16,7 @@ class AddMateriasTable extends Migration
         Schema::create('materias', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nombre', 20);
-            $table->unsignedBigInteger('calificacion');
+            $table->unsignedBigInteger('calificacion')->default('1');
 
             $table->foreign('calificacion')->references('id')->on('calificaciones')->onDelete('cascade'); 
             $table->timestamps();

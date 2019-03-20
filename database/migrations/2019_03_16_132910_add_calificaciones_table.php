@@ -15,7 +15,7 @@ class AddCalificacionesTable extends Migration
     {
         Schema::create('calificaciones', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nota', 20);
+            $table->string('nota', 20)->default('0');
             $table->timestamps();
         });
     }
