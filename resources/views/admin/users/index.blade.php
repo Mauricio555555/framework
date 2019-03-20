@@ -4,7 +4,12 @@
 
 
 @section('content')
-<link  rel = " hoja de estilo "  href = " //maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css ">
+
+<link  rel = "hoja de estilo"  href = "//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+
 <a href="{{url('admin/users/create')}}" class="btn btn-info">Registrar nuevo usuario</a><hr>
 	<table class="table table-striped table-dark">
   <thead>
@@ -28,7 +33,9 @@
       		@endif
 
       </td>
-      <td><a href="" class="btn btn-danger"></a><a href="" class="btn btn-warning"></a></td>
+      <td><a href="{{ route('admin.users.destroy', $user->id) }}" onclick="return confirm('Se eliminara el usuario ')" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+
+        <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning"> <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a></td>
     </tr>    
     @endforeach
   </tbody>

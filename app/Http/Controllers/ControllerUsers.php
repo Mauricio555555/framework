@@ -16,9 +16,8 @@ class ControllerUsers extends Controller
 		return view('admin.users.index')->with('users', $users);
 	}
 
-	//**
-	//
-
+    //**
+    //
     public function create()
     {
     	return view('admin.users.create');
@@ -34,7 +33,26 @@ class ControllerUsers extends Controller
 
         flash( "Se he creado el usuario ".$users->name." exitosamente" )->success();
 
-        return redirect('admin/users');
-    	
+        return redirect('admin/users');    	
+    }
+
+    //**
+    //
+    public function destroy($id)
+    {
+        $users = User::find($id);
+        $users->delete();
+
+        flash( "Se he eliminado el usuario ".$users->name." exitosamente" )->success();
+
+        return redirect('admin/users');  
+    }
+
+    //**
+    //
+    public function edit($id)
+    {
+       $users = User::find($id);
+       return view('admin.users.edit')->with('users', $users);  
     }
 }

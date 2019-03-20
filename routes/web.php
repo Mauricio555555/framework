@@ -18,5 +18,7 @@ Route::get('/', function () {
 Route::group(['prefix' => 'admin'], function()
 {
 	Route::resource('users','ControllerUsers');
-	Route::
+	Route::get('users/{id}/destroy', [
+		'uses'	=> 'ControllerUsers@destroy', 
+		'as'	=> 'admin.users.destroy']);
 });
