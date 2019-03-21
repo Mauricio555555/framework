@@ -3,11 +3,14 @@
 <head>
 	<meta charset="utf-8">
 	<title>@yield('title', 'Default') | Panel de administracion</title>
+
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">-->
 	    
  
 	
 </head>
-<body class="admin-body">
+
+<body class="admin-body" class="border: solid #08f" style="margin: 5em 15em 2em"  > 
 	@include('admin.parcial.nav')
 
 	<section class="section-admin">

@@ -23,5 +23,12 @@ Route::group(['prefix' => 'admin'], function()
 		'as'	=> 'admin.users.destroy']);
 	Route::resource('notas', 'ControllerCalificacion');
 	Route::resource('materias', 'ControllerMaterias');
+	Route::get('materias/{id}/destroy',[
+		'uses'	=> 'ControllerMaterias@destroy',
+		'as'	=> 'admin.materias.destroy']);
 });
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
