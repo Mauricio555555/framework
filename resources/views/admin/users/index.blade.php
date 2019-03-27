@@ -1,9 +1,10 @@
-@extends('admin.main')
+@extends('layouts.app')
 
 @section('title', 'Lista de usuarios')
 
-
 @section('content')
+
+<hr>
 
 <link  rel = "hoja de estilo"  href = "//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 

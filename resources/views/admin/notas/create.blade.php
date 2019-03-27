@@ -1,4 +1,4 @@
-@extends('admin.main')
+@extends('layouts.app')
 
 @section('title', 'Agregar calificacion')
 

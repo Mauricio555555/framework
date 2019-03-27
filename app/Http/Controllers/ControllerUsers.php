@@ -62,9 +62,11 @@ class ControllerUsers extends Controller
      public function update(Request $request, $id)
     {
         $users = User::find($id);
-        $users->fill($request->all());
+        $users->name = $request->name;
+        $users->email = $request->email;
+        $users->password = bcrypt($request->password);
+        $users->type = $request->type;
         $users->save();
-
         flash( "Los datos se han actualizado exitosamente" )->success();
 
         return redirect('admin/users');

@@ -5,6 +5,6 @@
 @endsection
 
 @section('content')
-<h1>hello</h1>
+<h1>Bienvenidos a mi web</h1>
 <a href="" class="btn btn-success"> boton</a>
 @endsection

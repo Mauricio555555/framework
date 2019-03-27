@@ -15,18 +15,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'admin'], function()
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function()
 {
 	Route::resource('users','ControllerUsers');
 	Route::get('users/{id}/destroy', [
 		'uses'	=> 'ControllerUsers@destroy', 
 		'as'	=> 'admin.users.destroy']);
+
 	Route::resource('notas', 'ControllerCalificacion');
+
 	Route::resource('materias', 'ControllerMaterias');
 	Route::get('materias/{id}/destroy',[
 		'uses'	=> 'ControllerMaterias@destroy',
 		'as'	=> 'admin.materias.destroy']);
 });
+
 
 
 Auth::routes();

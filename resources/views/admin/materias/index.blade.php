@@ -1,7 +1,6 @@
-@extends('admin.main')
+@extends('layouts.app')
 
 @section('title', 'Lista de materias')
-
 
 @section('content')
 
