@@ -81,6 +81,7 @@
             @include('admin.parcial.errors')
             <hr>
             @yield('content')
+            @yield('content1')
              
             
         </main>
