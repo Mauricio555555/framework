@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\materia;
+use App\calificacion;
 use App\Http\Requests\MateriasRequest;
 
 class ControllerMaterias extends Controller
@@ -33,6 +34,14 @@ class ControllerMaterias extends Controller
         flash( "Se he creado la materia ".$materias->nombre." exitosamente" )->success();
 
         return redirect('admin/materias');    	
+    }
+
+        //**
+    //
+    public function edit($id)
+    {
+       $users = User::find($id);
+       return view('admin.notas.create')->with('users', $users);  
     }
 
     //**

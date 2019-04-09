@@ -4,7 +4,7 @@
 
 @section('content')
 
-{{ Form::open(array('route' => 'materias.store', 'method' => 'POTS')) }}
+{{ Form::open(array('route' => 'materias.store', 'method' => 'POST')) }}
 		<div class="form-group">
 			{{ Form::label('nombre', 'Nombre')}}
 			{{ Form::text('nombre', null, ['class' => 'form-control', 'placeholder' => 'Nombre materia', 'required'])}}

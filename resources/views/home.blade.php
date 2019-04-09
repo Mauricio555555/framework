@@ -15,6 +15,7 @@
                     @endif
 
                     <a href="{{url('admin/users')}}"><h3>Continuar</h3></a>
+                        <img align=center border=0  src="https://upload.wikimedia.org/wikipedia/commons/9/97/Escudo_Universidad_Mariana.jpg" width="160" height="160" class="d-inline-block align-center" alt="">
                 </div>
             </div>
         </div>

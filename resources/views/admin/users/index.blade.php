@@ -13,7 +13,7 @@
 
 <a href="{{url('admin/users/create')}}" class="btn btn-info">Registrar nuevo usuario</a><hr>
 	<table class="table table-striped table-dark">
-  <thead>
+  <thead>   
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Nombre</th>
@@ -34,9 +34,9 @@
       		@endif
 
       </td>
-      <td><a href="{{ route('admin.users.destroy', $user->id) }}" onclick="return confirm('Se eliminara el usuario ')" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+      <td><a href="{{ route('admin.users.destroy', $user->id) }}" onclick="return confirm('Se eliminara el usuario ')" class="btn btn-danger"><span class="icon icon-trash" aria-hidden="true">Eliminar</span></a>
 
-        <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning"> <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a></td>
+        <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning">Editar<span class="icon icon-wrench" aria-hidden="true"></span></a></td>
     </tr>    
     @endforeach
   </tbody>
