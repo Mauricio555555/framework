@@ -19,4 +19,13 @@ class materia extends Model
  	{
  		return $this->hasOne('App\calificacion');
  	}
+    public function estudiante()
+    {
+        return $this->morphedByMany('App\estudiante');
+    }
+
+ 	public function scopeSearch($query, $nombre)
+	{
+		return $query->where('nombre', 'LIKE', "%$nombre%");
+	}
  }

@@ -7,9 +7,9 @@
 <link  rel = "hoja de estilo"  href = "//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
- 
+
  <table> 
-<th> <a href="{{url('admin/materias/create')}}" class="btn btn-info">Registrar nueva materia</a></th> 
+
 <th style="color:white;">----------------------------------------------------------------</th>
  <!-- BUSCADORDE TAGS-->
  {!! Form::open(['route' => 'materias.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
@@ -21,36 +21,47 @@
     </div>
 
   {!! Form::close() !!}
+</table>
 
 <!-- FIN DEL BUSCADOR -->
-<!-- FIN DEL BUSCADOR -->
 
-	<table class="table table-striped table-dark">
-  <thead>
+
+  <!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <table class="table table-striped table-dark">
+  <thead>   
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Nombre</th>
+      <th scope="col">Tipo</th>
       <th scope="col">Accion</th>
     </tr>
   </thead>
   <tbody>
-  	@foreach($materias as $materia)
+
+    @foreach($users as $user)
     <tr>
-        <td>{{$materia->id}}</td>
-        <td>{{$materia->nombre}}</td>
-        <td>       
-          <a href="{{ route('admin.materias.destroy', $materia->id) }}" onclick="return confirm('Se eliminara la materia ')" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true">Eliminar</span></a>
-
-          <a href="{{ route('materias.edit', $materia->id) }}" class="btn btn-warning"> <span class="glyphicon glyphicon-wrench" aria-hidden="true">Editar</span></a>
-
+        @if($user->type == "teachers")
+        <td>{{$user->id}}</td>
+        <td>{{$user->name}}</td>
+        <td>
+            @if($user->type == "admin")
+              <span class="badge badge-danger">{{$user->type}}</span>
+            @else
+              <span class="badge badge-primary">{{$user->type}}</span>
+            @endif
         </td>
+        <td>
+          <a href="{{ route('docente.create', $user->id) }}" class="btn btn-warning">Asignar materia<span class="icon icon-wrench" aria-hidden="true"></span></a>
+        </td>
+        @endif
     </tr>    
     @endforeach
   </tbody>
 </table>
-  <div class="text-center">
-    {{$materias->render()}}
-  </div>
+<div class="text-center">
+  {{$users->render()}}
+</div>
 
 
 @endsection

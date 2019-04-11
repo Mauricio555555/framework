@@ -26,8 +26,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function()
 			'as'	=> 'admin.users.destroy']);
 	});
 
+	Route::resource('asignar', 'ControllerAsignar');
 
 	Route::resource('notas', 'ControllerCalificacion');
+
+	Route::resource('docente', 'ControllerDocente');
+		Route::get('docente/{id}/destroy',[
+		'uses'	=> 'ControllerDocente@destroy',
+		'as'	=> 'admin.asignar.docente.destroy']);
 
 	Route::resource('materias', 'ControllerMaterias');
 	Route::get('materias/{id}/destroy',[
@@ -37,6 +43,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function()
 	Route::get('notas/{id}/create',[
 		'uses'	=> 'ControllerCalificacion@store',
 		'as'	=> 'admin.notas.create']);
+
 });
 
 Auth::routes();

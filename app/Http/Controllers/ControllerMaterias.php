@@ -12,16 +12,21 @@ class ControllerMaterias extends Controller
 {
     //**
     //
-    public function index()
+    public function index(Request $request)
     {
-        $materias = materia::orderBy('id', 'ASC')->paginate(5);
+        $materias = materia::search($request->name)->orderBy('id', 'ASC')->paginate(5);
+        $materias->each(function($materias)
+        {
+            $materias->calificacion;
+        });
         return view('admin.materias.index')->with('materias', $materias);
     }
     //
     //
     public function create()
     {
-    	return view('admin.materias.create');
+        $notas = calificacion::orderBy('id', 'ASC')->pluck('nota', 'id');
+    	return view('admin.materias.create')->with('notas', $notas);
     }
 
     //
@@ -40,8 +45,26 @@ class ControllerMaterias extends Controller
     //
     public function edit($id)
     {
-       $users = User::find($id);
-       return view('admin.notas.create')->with('users', $users);  
+
+       $materias = materia::find($id);
+
+       $materias->calificacion;
+
+       $notas = calificacion::orderBy('id', 'ASC')->pluck('nota', 'id');
+       return view('admin.materias.edit')->with('notas', $notas);
+    }
+
+    //**
+    //
+     public function update(Request $request, $id)
+    {
+
+        $materias = materia::find($id);
+        $materias->fill($request->all());
+        $materias->save();
+        flash( "Los datos se han actualizado exitosamente" )->success();
+
+        return redirect('admin/materias');
     }
 
     //**

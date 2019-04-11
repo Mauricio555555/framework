@@ -23,5 +23,9 @@ class estudiante extends Model
  	{
  		return $this->belongsTo('App\User');
  	}
+ 	public function materia()
+    {
+        return $this->morphToMany('App\materia');
+    }
 }
 

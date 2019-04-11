@@ -13,7 +13,7 @@ class AddSalonTable extends Migration
      */
     public function up()
     {
-        Schema::create('salon', function (Blueprint $table) {
+        Schema::create('salones', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('numero', 20);
             $table->timestamps();

@@ -117,7 +117,7 @@ body {
 <div class="header">  
   <h1 >   <img  src="https://upload.wikimedia.org/wikipedia/commons/9/97/Escudo_Universidad_Mariana.jpg" width="160" height="160" class="d-inline-block align-center" alt=""> 
     <br> <br> COLEGIO UM</h1>
-  <p>A website created by me.</p>
+  <p>Ingenieria de sistemas - Frameworks.</p>
 </div>
 @if(Auth::user())
 <div class="navbar">
@@ -126,7 +126,7 @@ body {
       <a href="{{url('admin/users')}}">Usuarios</a>
   @endif
       <a class="nav-item nav-link" href="{{url('admin/materias')}}">Materias</a>
-  <a href="#" class="right">Link</a>
+  <a href="{{url('admin/asignar')}}" class="right">Asignar</a>
 </div>
    <div class="hr-divider">
         <h3 class="hr-divider-content hr-divider-heading">

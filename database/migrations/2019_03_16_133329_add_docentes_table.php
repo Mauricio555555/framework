@@ -20,9 +20,12 @@ class AddDocentesTable extends Migration
             $table->string('apellido', 20);
             $table->string('No_seguro', 20);
             $table->string('telefono', 20);
-            $table->unsignedBigInteger('materia');
+            $table->unsignedBigInteger('materia')->default('1');
+            $table->unsignedBigInteger('user_id')->default('1');
 
             $table->foreign('materia')->references('id')->on('materias')->onDelete('cascade'); 
+            $table->foreign('user_id')->references('id')->on('users');
+
             $table->timestamps();
         });
     }

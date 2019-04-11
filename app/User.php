@@ -42,6 +42,13 @@ class User extends Authenticatable
         return $this->type === 'admin';
     }
 
+    public function teacher()
+    {
+        return $this->type === 'teachers';
+    }
+
+    /////////////////////////////////////////////////
+
     public function egresado()
     {
         return $this->hasOne('App\egresado');
