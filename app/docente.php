@@ -8,7 +8,7 @@ class docente extends Model
 {
     protected $table = 'docentes';
 
- 	protected $fillable = ['nombre', 'apellido', 'No_seguro', 'telefono', 'materia'];  
+ 	protected $fillable = ['nombre', 'apellido', 'No_seguro', 'telefono', 'materia', 'user_id'];  
 
  	public function materia()
  	{

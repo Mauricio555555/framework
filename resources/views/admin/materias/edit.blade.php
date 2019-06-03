@@ -1,8 +1,8 @@
 @extends('layouts.app')
-
 @section('title', 'Editar materias')
 
 @section('content')
+
 
 {{ Form::open(['route' => ['materias.update', $notas], 'method' => 'PUT']) }}
 
@@ -20,6 +20,5 @@
 			{{ Form::submit('Registrar', ['class' => 'btn btn-primary'])}}
 		</div>
 {{ Form::close() }}
-
 
 @endsection

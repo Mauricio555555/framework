@@ -27,6 +27,14 @@ class Admin
         {
             return $next($request);
         }
+        elseif($this->auth->user()->teacher())
+        {
+            return $next($request);
+        }
+        elseif($this->auth->user()->students())
+        {
+            return $next($request);
+        }
         else
         {
             abort(401);

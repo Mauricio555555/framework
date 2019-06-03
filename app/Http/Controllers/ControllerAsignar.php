@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\materia;
 use App\calificacion;
 use App\User;
+use App\docente;
 
 use App\Http\Requests\MateriasRequest;
 
@@ -29,4 +30,6 @@ class ControllerAsignar extends Controller
 		$users = User::orderBy('id', 'ASC')->paginate(5);
 		return view('admin.asignar.index')->with('users', $users);
 	}
+
+ 
 }

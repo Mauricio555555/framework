@@ -1,11 +1,9 @@
-
 @extends('layouts.app')
-@section('title', 'Lista de docente')
+@section('title', 'Registro de informacion')
 
 @section('content')
 
-
-{{ Form::open(array('route' => 'docente.store', 'method' => 'POST')) }}
+{{ Form::open(array('route' => 'estudiantes.store', 'method' => 'POST')) }}
 		<div class="form-group">
 			{{ Form::label('nombre', 'Nombre')}}
 			{{ Form::text('nombre', null, ['class' => 'form-control', 'placeholder' => 'Nombre', 'required'])}}
@@ -27,9 +25,10 @@
 		</div>
 
 		<div class="form-group">
-			{{ Form::label('user_id', 'Usuario') }}
-			{{ Form::select('user_id', $users, null, ['class' => 'form-control', 'placeholder' => 'Selecciones una opcion', 'required']) }}
+			{{ Form::label('id_docente', 'Usuario') }}
+			{{ Form::select('id_docente', $users, null, ['class' => 'form-control', 'placeholder' => 'Selecciones una opcion', 'required']) }}
 		</div>
+
 
 		<div class="form-group">
 			{{ Form::submit('Registrar', ['class' => 'btn btn-primary'])}}

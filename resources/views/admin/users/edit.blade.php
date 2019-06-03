@@ -1,6 +1,6 @@
 @extends('layouts.app')
+@section('title', 'Editar usuarios')
 
-@section('title', 'Editar usuario ' . $users->name)
 
 @section('content')
 
@@ -27,5 +27,4 @@
 		</div>
 
 	{{ Form::close() }}
-
 @endsection

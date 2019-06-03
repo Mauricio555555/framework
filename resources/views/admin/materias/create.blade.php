@@ -1,8 +1,9 @@
 @extends('layouts.app')
-
 @section('title', 'Crear materias')
 
 @section('content')
+
+
 
 {{ Form::open(array('route' => 'materias.store', 'method' => 'POST')) }}
 		<div class="form-group">
@@ -19,6 +20,5 @@
 			{{ Form::submit('Registrar', ['class' => 'btn btn-primary'])}}
 		</div>
 {{ Form::close() }}
-
 
 @endsection

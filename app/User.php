@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'type',
+        'name', 'email', 'password', 'type', 'id',
     ];
 
     /**
@@ -46,6 +46,14 @@ class User extends Authenticatable
     {
         return $this->type === 'teachers';
     }
+
+    public function students()
+    {
+        return $this->type === 'students';
+    }
+
+
+
 
     /////////////////////////////////////////////////
 

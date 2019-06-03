@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Asignar docente')
+@section('title', 'Asignar estudiante')
 
 @section('content')
 
@@ -39,7 +39,7 @@
 
     @foreach($users as $user)
     <tr>
-        @if($user->type == "teachers")
+        @if($user->type == "students")
         <td>{{$user->id}}</td>
         <td>{{$user->name}}</td>
         <td>
@@ -50,7 +50,7 @@
             @endif
         </td>
         <td>
-          <a href="{{ route('docente.create', $user->id) }}" class="btn btn-warning">Asignar docente<span class="icon icon-wrench" aria-hidden="true"></span></a>
+          <a href="{{ route('estudiantes.create', $user->id) }}" class="btn btn-warning">Asignar estudiante<span class="icon icon-wrench" aria-hidden="true"></span></a>
         </td>
         @endif
     </tr>    
@@ -63,3 +63,4 @@
 
 
 @endsection
+

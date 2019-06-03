@@ -1,12 +1,10 @@
- @extends('layouts.app')
-
+@extends('layouts.app')
 @section('title', 'Lista de usuarios')
 
 @section('content')
 
 <hr>
 
-<link  rel = "hoja de estilo"  href = "//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
    

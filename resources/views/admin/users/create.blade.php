@@ -1,8 +1,8 @@
 @extends('layouts.app')
-
-@section('title', 'Crear usuario')
+@section('title', 'Lista de usuarios')
 
 @section('content')
+
 
 	{{ Form::open(array('route' => 'users.store', 'method' => 'POTS')) }}
 

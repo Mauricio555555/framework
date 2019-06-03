@@ -21,7 +21,7 @@ class AddDocentesTable extends Migration
             $table->string('No_seguro', 20);
             $table->string('telefono', 20);
             $table->unsignedBigInteger('materia')->default('1');
-            $table->unsignedBigInteger('user_id')->default('1');
+            $table->unsignedBigInteger('user_id')->unique();
 
             $table->foreign('materia')->references('id')->on('materias')->onDelete('cascade'); 
             $table->foreign('user_id')->references('id')->on('users');

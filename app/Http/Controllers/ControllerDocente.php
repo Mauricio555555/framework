@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\docente;
 use App\materia;
 use App\User;
@@ -13,16 +14,42 @@ class ControllerDocente extends Controller
 {
     public function index()
 	{
-		$docentes = docente::orderBy('id', 'ASC')->paginate(5);
+		$docentes = docente::orderBy('id', 'ASC')->paginate(5)->all();
+        foreach($docentes as $docente){
+            $nombre = User::find($docente->user_id);
+            $docente->user_id =   $nombre->name;
+        }
+
 		return view('admin.asignar.docente.index')->with('docentes', $docentes);
 	}
+
+    public function inicio()
+    {
+        $docentes = docente::orderBy('id', 'ASC')->paginate(5);
+        foreach($docentes as $docente){
+            $nombre = User::find($docente->user_id);
+            $docente->user_id =   $nombre->name;
+        }
+        return view('admin.asignar.docente.inicio')->with('docentes', $docentes);
+    }
+
+    public function menu()
+    {
+        $docentes = docente::orderBy('id', 'ASC')->paginate(5);
+        foreach($docentes as $docente){
+            $nombre = User::find($docente->user_id);
+            $docente->user_id =   $nombre->name;
+        }
+        return view('admin.asignar.docente.menu')->with('docentes', $docentes);
+    }
 
 	//
     //
     public function create()
     {
         $materias = materia::orderBy('id', 'ASC')->pluck('nombre', 'id');
-        $users = User::orderBy('id', 'ASC')->pluck('type', 'id');
+        $users = User::orderBy('id', 'ASC')->pluck('name', 'id');    
+        
     	return view('admin.asignar.docente.create')->with('materias', $materias)->with('users', $users);
     }
 

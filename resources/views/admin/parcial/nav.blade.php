@@ -121,12 +121,19 @@ body {
 </div>
 @if(Auth::user())
 <div class="navbar">
+  @if(Auth::user()->teacher())    
+    <a href="{{url('admin/estudiantes')}}">Menu principal</a>
+  @elseif(Auth::user()->students()) 
+    <a href="{{url('admin/asignar/docente/inicio')}}">Materias</a>
+  @elseif(Auth::user()->usuario())  
   <a href="{{url('/login')}}">Inicio <span class="sr-only">(current)</span></a>
-  @if(Auth::user()->usuario())
+     <a href="{{url('admin/materias')}}">Materias</a>
       <a href="{{url('admin/users')}}">Usuarios</a>
+        <a href="{{url('admin/asignar')}}">Asignar docente</a>
+        <a href="{{url('admin/asignarestu')}}">Asignar estudiante</a>
+
   @endif
-      <a class="nav-item nav-link" href="{{url('admin/materias')}}">Materias</a>
-  <a href="{{url('admin/asignar')}}" class="right">Asignar</a>
+
 </div>
    <div class="hr-divider">
         <h3 class="hr-divider-content hr-divider-heading">
