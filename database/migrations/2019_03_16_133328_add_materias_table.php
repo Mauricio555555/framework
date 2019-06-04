@@ -17,8 +17,10 @@ class AddMateriasTable extends Migration
             $table->bigIncrements('id');
             $table->string('nombre', 20);
             $table->unsignedBigInteger('calificacion')->default('1');
+            $table->unsignedBigInteger('id_estudiante')->default('1');
 
             $table->foreign('calificacion')->references('id')->on('calificaciones')->onDelete('cascade'); 
+            $table->foreign('id_estudiante')->references('id')->on('estudiantes')->onDelete('cascade'); 
             $table->timestamps();
         });
     }

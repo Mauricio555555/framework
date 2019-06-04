@@ -52,6 +52,11 @@ class User extends Authenticatable
         return $this->type === 'students';
     }
 
+    public function id()
+    {
+        return $this->id;
+    }
+
 
 
 

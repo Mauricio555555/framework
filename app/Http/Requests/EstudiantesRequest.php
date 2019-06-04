@@ -25,7 +25,7 @@ class EstudiantesRequest extends FormRequest
     {
         return [
             //
-            'No_seguro' => 'min:8|max:10|unique:estudiantes|required'
+            'No_seguro' => 'min:8|max:10|required'
         ];
     }
 }

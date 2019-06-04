@@ -8,7 +8,7 @@ class materia extends Model
 {
     protected $table = 'materias';
 
- 	protected $fillable = ['nombre', 'calificacion'];   
+ 	protected $fillable = ['nombre', 'calificacion', 'id_estudiante'];   
 
  	public function docente()
  	{

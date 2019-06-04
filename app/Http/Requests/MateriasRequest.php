@@ -24,7 +24,7 @@ class MateriasRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre' => 'min:4|max:250|unique:materias|required'
+            'nombre' => 'min:1|max:250|required'
         ];
     }
 }

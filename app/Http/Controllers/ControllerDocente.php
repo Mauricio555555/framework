@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\docente;
 use App\materia;
 use App\User;
+use App\estudiante;
 use App\Http\Requests\DocenteRequest;
 use App\Http\Requests\MateriasRequest;
 
@@ -25,12 +26,15 @@ class ControllerDocente extends Controller
 
     public function inicio()
     {
-        $docentes = docente::orderBy('id', 'ASC')->paginate(5);
+        $docentes = docente::orderBy('id', 'ASC')->paginate(5);        
+        $estudiantes = estudiante::orderBy('id', 'ASC')->paginate(5); 
+        $materias = materia::orderBy('id', 'ASC')->paginate(5); 
         foreach($docentes as $docente){
             $nombre = User::find($docente->user_id);
-            $docente->user_id =   $nombre->name;
+            $docente->user_id =   $nombre->name;  
         }
-        return view('admin.asignar.docente.inicio')->with('docentes', $docentes);
+        return view('admin.asignar.docente.inicio')->with('docentes', $docentes)
+        ->with('estudiantes', $estudiantes)->with('materias', $materias);
     }
 
     public function menu()

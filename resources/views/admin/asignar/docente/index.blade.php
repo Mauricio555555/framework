@@ -3,12 +3,7 @@
 
 @section('content1')
 
-     
-<style type="text/css">
-	body {
-    padding: 1em;
-}
-</style>
+HOLA 1234567890
 
 
 @endsection
